@@ -3,7 +3,9 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import pages.Analizator;
 import pages.BBCHomePage;
+import pages.BasePage;
 
 public class TestBbcTask1 extends BaseTest {
 
@@ -38,7 +40,7 @@ public class TestBbcTask1 extends BaseTest {
 
     @Test(dataProvider = "typeOfSport")
     public void checkNullPointerException(String typeOfSport) {
-        String EXPECTED_VALUE = "";
+        String EXPECTED_VALUE;
 
         switch (typeOfSport) {
             case "Football" -> EXPECTED_VALUE = "Football";

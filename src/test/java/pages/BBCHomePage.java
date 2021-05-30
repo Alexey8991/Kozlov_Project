@@ -14,6 +14,9 @@ public class BBCHomePage extends BasePage implements Pages {
     @FindBy(xpath = "//input[@id='orb-search-q']")
     private WebElement searchBar;
 
+    @FindBy(xpath = "//div[@id='orb-nav-links']//a[@href='https://www.bbc.com/news']")
+    private WebElement newsButton;
+
     public BBCHomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
@@ -33,5 +36,10 @@ public class BBCHomePage extends BasePage implements Pages {
         searchBar.sendKeys(searchWord);
         searchBar.sendKeys(Keys.ENTER);
         return new BBCSearchPage(driver);
+    }
+
+    public BBCNewsPage getNewsPage() {
+        newsButton.click();
+        return new BBCNewsPage(driver);
     }
 }
